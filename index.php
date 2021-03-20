@@ -6,12 +6,20 @@ spl_autoload_register(function ($class_name) {
     require_once $class_name . '.php';
 });
 
-Route::add("/rp76",function(){
-    echo "Salam Rp76";
+Route::add("/", function () {
+    echo "Main page";
+});
+
+Route::add("/rp76", function () {
+    Route::redirect("https://rp76.ir");
+}, "get", "zizi");
+
+Route::add("/ zizi",function(){
+    Route::redirect(Route::name("zizi"));
 });
 
 Route::add("/rp",function(){
-    header("location: https://rp76.ir");
+    echo "rp";
 });
 
 Route::run();
